@@ -1,5 +1,5 @@
 {
-    "name": "ESP Web Tool Demo",
+    "name": "DCC Touch Controller",
     "new_install_prompt_erase": true,
     "builds": [
       {
