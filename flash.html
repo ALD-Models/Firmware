@@ -1,12 +1,33 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
 
+        h1 {
+            color: #333;
+        }
 
+        #main, #notSupported {
+            display: none;
+        }
+
+        #logo {
+            margin: 20px;
+        }
+    </style>
+</head>
 <body>
-    <h1>ALD Models T3-DCC Remote Firmware Updater</h1>
+    <div id="logo">
+        <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg/:/rs=w:118,h:113,cg:true,m/cr=w:118,h:113/qt=q:95" alt="ALD Models Logo">
+    </div>
+    <h1>Sample project for demoing ESP Web Tools</h1>
 
-    <div id="main" style="display: none;">
-
+    <div id="main">
         <br>
         <script
             type="module"
@@ -14,15 +35,14 @@
         </script>
         <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
         <br>
-        <span>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor)</span>
+        <span>NOTE: Make sure to close anything using your device's com port (e.g. Serial monitor)</span>
     </div>
-    <div id="notSupported" style="display: none;">
+    <div id="notSupported">
         Your browser does not support the Web Serial API. Try Chrome
     </div>
-    
 
     <script>
-        if(navigator.serial){
+        if (navigator.serial) {
             document.getElementById("notSupported").style.display = 'none';
             document.getElementById("main").style.display = 'block';
         } else {
@@ -30,7 +50,5 @@
             document.getElementById("main").style.display = 'none';
         }
     </script>
-
 </body>
-
 </html>
