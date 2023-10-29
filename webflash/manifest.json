@@ -1,7 +1,6 @@
 {
     "name": "Signal Controller",
     "builds": [
-
       {
         "chipFamily": "ESP8266",
         "parts": [
