@@ -63,9 +63,9 @@
                 <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
             </div>
             <br>
-            <span>NOTE: Make sure to close anything using your device's com port (e.g. Serial monitor)</span>
+            <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial monitor)</span>
         </div>
-        <div id="notSupported" style="display: none;">
+        <div id="notSupported">
             Your browser does not support the Updater. Try Chrome, Safari
         </div>
     </div>
@@ -75,6 +75,7 @@
             document.getElementById("notSupported").style.display = 'none';
             document.getElementById("main").style.display = 'block';
         } else {
+            document.getElementById("noteSpan").innerHTML = "Your browser does not support the Updater. Try Chrome, Safari";
             document.getElementById("notSupported").style.display = 'block';
             document.getElementById("main").style.display = 'none';
         }
