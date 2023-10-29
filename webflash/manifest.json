@@ -2,8 +2,6 @@
     "name": "Signal Controller",
     "new_install_prompt_erase": false,
     "version": "2023.10.29",
-
-    
     "builds": [
 
       {
