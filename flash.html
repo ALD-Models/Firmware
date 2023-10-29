@@ -51,7 +51,7 @@
     <div id="container">
         <div id="rounded-box">
             <div id="logo">
-                <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg/:/rs=w:235,h:226,cg:true,m/cr:w:235,h:226/qt=q:95/:/rs=w:118,h:113,cg:true,m/cr:w:118,h:113/qt=q:95" alt="ALD Models Logo">
+                <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg/:/rs=w:235,h:226,cg:true,m/cr=w:235,h:226/qt=q:95/:/rs=w:235,h:226,cg:true,m/cr:w:235,h:226/qt=q:95/:/rs=w:118,h:113,cg:true,m/cr:w:118,h:113/qt=q:95" alt="ALD Models Logo">
             </div>
             <h1>ALD Models Firmware Updater</h1>
             <div id="main">
@@ -63,5 +63,31 @@
             <span>NOTE: Make sure to close anything using your device's com port (e.g. Serial monitor)</span>
         </div>
     </div>
+
+
+            <script
+            type="module"
+            src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
+        </script>
+        <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+        <br>
+        <span>NOTE: Make sure to close anything using your devices com port (e.g. Serial monitor)</span>
+    </div>
+    <div id="notSupported" style="display: none;">
+        Your browser does not support the Web Serial API. Try Chrome
+    </div>
+    
+
+    <script>
+        if(navigator.serial){
+            document.getElementById("notSupported").style.display = 'none';
+            document.getElementById("main").style.display = 'block';
+        } else {
+            document.getElementById("notSupported").style.display = 'block';
+            document.getElementById("main").style.display = 'none';
+        }
+    </script>
+
+    
 </body>
 </html>
