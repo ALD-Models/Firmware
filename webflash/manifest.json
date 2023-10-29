@@ -1,5 +1,6 @@
 {
     "name": "Signal Controller",
+    "new_install_prompt_erase": false,
     "builds": [
       {
         "chipFamily": "ESP8266",
