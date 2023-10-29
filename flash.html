@@ -15,6 +15,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            background: url('gray-circles.png') repeat;
             animation: moveCircles 20s linear infinite;
         }
 
@@ -78,15 +79,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-        if (navigator.serial) {
-            document.getElementById("notSupported").style.display = 'none';
-            document.getElementById("main").style display = 'block';
-        } else {
-            document.getElementById("notSupported").style.display = 'block';
-            document.getElementById("main").style.display = 'none';
-        }
-    </script>
 </body>
 </html>
