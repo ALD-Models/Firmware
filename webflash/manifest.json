@@ -1,5 +1,7 @@
 {
     "name": "Signal Controller",
+    "home_assistant_domain": "esphome",
+    "funding_url": "https://esphome.io/guides/supporters.html",
     "version": "2023.10.29",
     "new_install_prompt_erase": false,
     "builds": [
