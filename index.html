@@ -4,93 +4,116 @@
 <head>
   <title>Firmware Updater</title>
   <link rel="icon" type="image/x-icon" href="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg">
-</head>
-      
-<head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-            margin: 0;
-            padding: 0;
-            background-color: #161819ff;
-        }
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #161819ff;
+      overflow: hidden;
+    }
 
-        #container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    #container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-        #rounded-box-container {
-            display: flex;
-            justify-content: center;
-        }
+    #rounded-box-container {
+      display: flex;
+      justify-content: center;
+    }
 
-        #rounded-box {
-            background-color: white;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 1;
-        }
+    #rounded-box {
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
 
-        h1 {
-            color: #333;
-        }
+    h1 {
+      color: #333;
+    }
 
-        #main {
-            display: block;
-        }
+    #main {
+      display: block;
+    }
 
-        #notSupported {
-            display: none;
-        }
+    #notSupported {
+      display: none;
+    }
 
-        #logo img {
-            max-width: 15%;
-            height: auto;
-            border-radius: 20px;
-        }
-    </style>
+    #logo img {
+      max-width: 15%;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    /* Background Animation */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #ff0080, #8000ff);
+      background-size: 200% 200%;
+      animation: gradient 5s linear infinite;
+    }
+
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div id="container">
-        <div id="rounded-box-container">
-            <div id="rounded-box">
-                <div id="logo">
-                    <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg"
-                        alt="ALD Models Logo">
-                </div>
-                <h1>Firmware Updater</h1>
-                <div id="main">
-                    <br>
-                    <script type="module"
-                        src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
-                    <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
-                </div>
-                <br>
-                <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial
-                    monitor)</span>
-            </div>
+  <div id="container">
+    <div id="rounded-box-container">
+      <div id="rounded-box">
+        <div id="logo">
+          <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg"
+            alt="ALD Models Logo">
         </div>
+        <h1>Firmware Updater</h1>
+        <div id="main">
+          <br>
+          <script type="module"
+            src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
+          <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+        </div>
+        <br>
+        <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial
+          monitor)</span>
+      </div>
     </div>
+  </div>
 
-    <script>
-        if ("serial" in navigator) {
-            document.getElementById("notSupported").style.display = 'none';
-            document.getElementById("main").style display = 'block';
-        } else {
-            document.getElementById("noteSpan").innerHTML = "Your browser does not support the Updater.";
-            document.getElementById("notSupported").style.display = 'block';
-            document.getElementById("main").style.display = 'none';
-        }
-    </script>
+  <script>
+    if ("serial" in navigator) {
+      document.getElementById("notSupported").style.display = 'none';
+      document.getElementById("main").style.display = 'block';
+    } else {
+      document.getElementById("noteSpan").innerHTML = "Your browser does not support the Updater.";
+      document.getElementById("notSupported").style.display = 'block';
+      document.getElementById("main").style.display = 'none';
+    }
+  </script>
 </body>
 
 </html>
