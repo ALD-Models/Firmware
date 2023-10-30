@@ -10,7 +10,7 @@
             position: relative;
             margin: 0;
             padding: 0;
-            background-color: #161819ff; /* Set the background color to #161819ff */
+            background-color: #161819ff;
         }
 
         #container {
@@ -18,6 +18,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+
+        .center-box {
+            display: flex;
+            justify-content: center;
         }
 
         #rounded-box {
@@ -42,34 +47,37 @@
         }
 
         #logo img {
-            margin: 20px;
-            max-width: 15%; /* Reduce the maximum width to make it smaller */
+            max-width: 100%; /* Allow the image to scale based on the available space */
             height: auto;
-            border-radius: 10px; /* Add border-radius for rounded corners */
+            border-radius: 20px; /* Add border-radius for rounded corners */
         }
     </style>
 </head>
 
 <body>
     <div id="container">
-        <div id="rounded-box">
-            <div id="logo">
-                <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg"
-                    alt="ALD Models Logo">
-            </div>
-            <h1>ALD Models Firmware Updater</h1>
-            <div id="main">
+        <div class="center-box">
+            <div id="rounded-box">
+                <div id="logo">
+                    <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg"
+                        alt="ALD Models Logo">
+                </div>
+                <h1>ALD Models Firmware Updater</h1>
+                <div id="main">
+                    <br>
+                    <script type="module"
+                        src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
+                    <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+                </div>
                 <br>
-                <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
-                <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+                <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial
+                    monitor)</span>
             </div>
-            <br>
-            <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial monitor)</span>
         </div>
     </div>
 
     <script>
-        if ("serial" in navigator) { // Check for 'serial' support in the navigator object
+        if ("serial" in navigator) {
             document.getElementById("notSupported").style.display = 'none';
             document.getElementById("main").style.display = 'block';
         } else {
