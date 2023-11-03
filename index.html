@@ -3,7 +3,8 @@
 
 <head>
   <title>Firmware Updater</title>
-  <link rel="icon" type="image/x-icon" href="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg">
+  <link rel="icon" type="image/x-icon"
+    href="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg">
   <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -79,6 +80,47 @@
         background-position: 0% 50%;
       }
     }
+
+    .button {
+      display: inline-block;
+      border: none;
+      background-color: #25555C;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 15px;
+      padding: 10px;
+      width: 200px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.5s;
+      margin: 5px;
+      font-family: sans-serif;
+    }
+
+    .button span {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      transition: 0.5s;
+    }
+
+    .button span:after {
+      content: '\00bb';
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      right: -20px;
+      transition: 0.5s;
+    }
+
+    .button:hover span {
+      padding-right: 25px;
+    }
+
+    .button:hover span:after {
+      opacity: 1;
+      right: 0;
+    }
   </style>
 </head>
 
@@ -92,10 +134,11 @@
         </div>
         <h1>Firmware Updater</h1>
         <div id="main">
-          <br>
-          <script type="module"
-            src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
+            <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
           <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+         <br>
+          <br>
+          <button class="button" style="vertical-align: middle" onclick="window.location.href='http://www.aldmodels.co.uk'"><span>Visit our website</span></button>
         </div>
         <br>
         <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial
