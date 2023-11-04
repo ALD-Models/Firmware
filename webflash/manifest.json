@@ -10,30 +10,4 @@
         ]
       }
     ]
-
-
-"name": "Loco Controller",
-    "version": "2023.10.29",
-    "new_install_prompt_erase": false,
-    "builds": [
-      {
-        "chipFamily": "ESP8266",
-        "parts": [
-          { "path": "Signal_WithSendOption16_09_23.ino.bin", "offset": 0 }
-        ]
-      }
-    ]
-
-    "name": "Level Crossing Controller",
-    "version": "2023.10.29",
-    "new_install_prompt_erase": false,
-    "builds": [
-      {
-        "chipFamily": "ESP8266",
-        "parts": [
-          { "path": "Signal_WithSendOption16_09_23.ino.bin", "offset": 0 }
-        ]
-      }
-    ]
-
 }
