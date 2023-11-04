@@ -9,5 +9,11 @@
           { "path": "Signal_WithSendOption16_09_23.ino.bin", "offset": 0 }
         ]
       }
+         {
+        "chipFamily": "ESP8266",
+        "parts": [
+          { "path": "Signal_WithSendOption16_09_23.ino.bin", "offset": 0 }
+        ]
+      }
     ]
   }
