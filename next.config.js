@@ -3,12 +3,12 @@ module.exports = {
     return [
       {
         source: '/:path(.{1,})', // this will redirect any other paths to `/`
-        destination: '/',
+        destination: '/Firmware',
         permanent: true
       },
       {
         source: '/404',
-        destination: '/',
+        destination: '/Firmware',
         permanent: true
       }
     ]
