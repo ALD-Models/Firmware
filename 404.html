@@ -1,10 +1,97 @@
 <!DOCTYPE html>
 <html>
-   <head>
-      <title>HTML Meta Tag</title>
-      <meta http-equiv = "refresh" content = "0; url = https://ald-models.github.io/Firmware/" />
-   </head>
-   <body>
-      <p>Redirecting to another URL</p>
-   </body>
+
+<head>
+    <title>Firmware Updater</title>
+    <link rel="icon" href="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #161819ff;
+            overflow: hidden;
+        }
+
+        :root {
+            /* Colors */
+            --esp-tools-button-color: #25555C;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #rounded-box-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        #rounded-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #main {
+            display: block;
+        }
+
+        /* Background Animation */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0080, #8000ff);
+            background-size: 200% 200%;
+            animation: gradient 5s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="rounded-box-container">
+            <div id="rounded-box">
+                <h1>Redirecting</h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // You can add any redirect logic here if needed
+        setTimeout(function () {
+            window.location.href = 'https://ald-models.github.io/Firmware';
+        }, 2500); // Redirect after 3 seconds
+    </script>
+</body>
+
 </html>
