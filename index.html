@@ -2,171 +2,183 @@
 <html>
 
 <head>
-<title>Firmware Updater</title>
+    <title>Firmware Updater</title>
     <meta name="description" content="ALD Models Firmware Updater">
-		<meta name="keywords" content="wifi remote control, radio control, railway, narrow gauge, SM32, 16mm, G scale, garden railway, ALD Models, Firmware Update">
-		<meta name="abstract" content="Updater for ALD Models Electronic Products">
-		<meta name="robots" content="ALL">
-		<meta name="author" content="Jake Lofthouse, jakelofthouse@outlook.com">
-		<meta name="copyright" content="Jake Lofthouse, 2023">
-		<meta name="distribution" content="global">
-		<meta name="rating" content="Safe For Kids">
-  <link rel="icon" href="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg">
-  <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-      background-color: #161819ff;
-      overflow: hidden;
-    }
-:root {
-/* Colors */
-	--esp-tools-button-color: #25555C;
-	}
-    #container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
+    <meta name="keywords" content="wifi remote control, radio control, railway, narrow gauge, SM32, 16mm, G scale, garden railway, ALD Models, Firmware Update">
+    <meta name="abstract" content="Updater for ALD Models Electronic Products">
+    <meta name="robots" content="ALL">
+    <meta name="author" content="Jake Lofthouse, jakelofthouse@outlook.com">
+    <meta name="copyright" content="Jake Lofthouse, 2023">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="Safe For Kids">
+    <link rel="icon" href="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg">
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #161819ff;
+            overflow: hidden;
+        }
 
-    #rounded-box-container {
-      display: flex;
-      justify-content: center;
-    }
+        :root {
+            /* Colors */
+            --esp-tools-button-color: #25555C;
+        }
 
-    #rounded-box {
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      position: relative;
-      z-index: 1;
-    }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-    h1 {
-      color: #333;
-    }
+        #rounded-box-container {
+            display: flex;
+            justify-content: center;
+        }
 
-    #main {
-      display: block;
-    }
+        #rounded-box {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
 
-    #notSupported {
-      display: none;
-    }
+        h1 {
+            color: #333; /* Set text color back to the original color */
+            margin-bottom: 20px;
+        }
 
-    #logo img {
-      max-width: 15%;
-      height: auto;
-      border-radius: 20px;
-    }
+        #main {
+            display: block;
+        }
 
-    /* Background Animation */
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(45deg, #ff0080, #8000ff);
-      background-size: 200% 200%;
-      animation: gradient 5s linear infinite;
-    }
+        #notSupported {
+            display: none;
+        }
 
-    @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
+        #logo img {
+            max-width: 15%;
+            height: auto;
+            border-radius: 20px;
+        }
 
-      50% {
-        background-position: 100% 50%;
-      }
+        /* Background Animation */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff0080, #8000ff);
+            background-size: 200% 200%;
+            animation: gradient 5s linear infinite;
+        }
 
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
 
-    .button {
-      display: inline-block;
-      border: none;
-      background-color: #25555C;
-      color: #FFFFFF;
-      text-align: center;
-      font-size: 15px;
-      padding: 10px;
-      width: 200px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.5s;
-      margin: 5px;
-      font-family: sans-serif;
-    }
+            50% {
+                background-position: 100% 50%;
+            }
 
-    .button span {
-      cursor: pointer;
-      display: inline-block;
-      position: relative;
-      transition: 0.5s;
-    }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
 
-    .button span:after {
-      content: '\00bb';
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      right: -20px;
-      transition: 0.5s;
-    }
+        .button {
+            display: inline-block;
+            border: none;
+            background-color: #25555C;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 15px;
+            padding: 10px;
+            width: 200px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.5s;
+            margin: 5px;
+            font-family: sans-serif;
+        }
 
-    .button:hover span {
-      padding-right: 25px;
-    }
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
 
-    .button:hover span:after {
-      opacity: 1;
-      right: 0;
-    }
-  </style>
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+
+        .powered-by {
+            font-size: 12px;
+            color: #25555C; /* Set text color to button color */
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 20px; /* Add margin to the top */
+        }
+    </style>
 </head>
 
 <body>
-  <div id="container">
-    <div id="rounded-box-container">
-      <div id="rounded-box">
-        <div id="logo">
-          <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg"
-            alt="ALD Models Logo">
+    <div id="container">
+        <div id="rounded-box-container">
+            <div id="rounded-box">
+                <div id="logo">
+                    <img src="https://img1.wsimg.com/isteam/ip/bbde3b1b-93a1-4e79-ba26-9f4d2c23fffb/ALD%20Models%20Logo%202020.jpg"
+                        alt="ALD Models Logo">
+                </div>
+                <h1>Firmware Updater</h1>
+                <div id="main">
+                    <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
+                    <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
+                    <br>
+                    <br>
+                    <a class="button" style="vertical-align: middle" href="http://www.aldmodels.co.uk"><span>Visit our website</span></a>
+                    <br>
+                    <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial
+                        monitor)</span>
+                </div>
+                <div class="powered-by" onclick="window.open('https://esphome.github.io/esp-web-tools/', '_blank')">Powered by ESP Web Tools</div>
+            </div>
         </div>
-        <h1>Firmware Updater</h1>
-        <div id="main">
-            <script type="module" src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"></script>
-          <esp-web-install-button id="installButton" manifest="webflash/manifest.json"></esp-web-install-button>
-         <br>
-          <br>
-          <button class="button" style="vertical-align: middle" onclick="window.location.href='http://www.aldmodels.co.uk'"><span>Visit our website</span></button>
-        </div>
-        <br>
-        <span id="noteSpan">NOTE: Make sure to close anything using your device's com port (e.g. Serial
-          monitor)</span>
-      </div>
     </div>
-  </div>
 
-  <script>
-    if ("serial" in navigator) {
-      document.getElementById("notSupported").style.display = 'none';
-      document.getElementById("main").style.display = 'block';
-    } else {
-      document.getElementById("noteSpan").innerHTML = "Your browser does not support the Updater.";
-      document.getElementById("notSupported").style.display = 'block';
-      document.getElementById("main").style.display = 'none';
-    }
-  </script>
+    <script>
+        if ("serial" in navigator) {
+            document.getElementById("notSupported").style.display = 'none';
+            document.getElementById("main").style.display = 'block';
+        } else {
+            document.getElementById("noteSpan").innerHTML = "Your browser does not support the Updater.";
+            document.getElementById("notSupported").style.display = 'block';
+            document.getElementById("main").style.display = 'none';
+        }
+    </script>
 </body>
 
 </html>
