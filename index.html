@@ -6,11 +6,7 @@
     <meta name="description" content="ALD Models Firmware Updater">
     <meta name="keywords" content="wifi remote control, radio control, railway, narrow gauge, SM32, 16mm, G scale, garden railway, ALD Models, Firmware Update">
     <meta name="abstract" content="Updater for ALD Models Electronic Products">
-    <meta name="robots" content="ALL">
-    <meta name="author" content="Jake Lofthouse, jakelofthouse@outlook.com">
-    <meta name="copyright" content="Jake Lofthouse, 2023">
-    <meta name="distribution" content="global">
-    <meta name="rating" content="Safe For Kids">
+    <meta property="og:type" content="website" />
     <link rel="shortcut icon" type="image/x.icon" href="favicon.ico?">
     <style>
         body {
@@ -32,6 +28,14 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+        
+        #uiCopyright {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #666;
         }
 
         #rounded-box-container {
@@ -168,7 +172,12 @@
             </div>
         </div>
     </div>
-
+    
+    <div id="uiCopyright">
+        &copy; <span id="copyrightYear"></span> Jake Lofthouse ALD Print Ltd |
+        <a href="https://www.aldprint.co.uk" target="_blank">www.aldprint.co.uk</a>
+    </div>
+    
     <script>
         if ("serial" in navigator) {
             document.getElementById("notSupported").style.display = 'none';
@@ -178,6 +187,20 @@
             document.getElementById("notSupported").style.display = 'block';
             document.getElementById("main").style.display = 'none';
         }
+
+         // Function to get the current year
+        function getCurrentYear() {
+            return new Date().getFullYear();
+        }
+
+        // Function to update the copyright year
+        function updateCopyrightYear() {
+            document.getElementById('copyrightYear').textContent = getCurrentYear();
+        }
+
+        // Call the function to update the copyright year
+        updateCopyrightYear();
+
     </script>
 </body>
 
