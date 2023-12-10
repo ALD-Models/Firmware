@@ -23,6 +23,58 @@
             text-align: center;
             max-width: 80%; /* Adjust the maximum width as needed */
             margin: auto;
+            position: relative; /* Set position to relative for absolute positioning within */
+            background-color: white; /* White background for the container */
+            padding: 20px; /* Add padding for spacing inside the container */
+            border-radius: 10px; /* Add border-radius for rounded corners */
+        }
+
+        #uiCopyright {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            font-size: 14px;
+            color: #666;
+            z-index: 1; /* Ensure the body is at a higher stacking order */
+        }
+
+        #animated-bg {
+            /* ... other styles ... */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3498db, #2ecc71, #e74c3c, #3498db);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            z-index: -1; /* Ensure the background is at a lower stacking order */
+        }
+
+        #o {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .ui-enabled #animated-bg {
+            display: block;
         }
 
         h1 {
@@ -41,6 +93,7 @@
             max-width: 18%; /* Make the image responsive */
             height: auto;
         }
+
     </style>
 </head>
 
@@ -50,6 +103,32 @@
         <h1>Sorry, Your Device Isn't Supported</h1>
         <p>Apologies for any inconvenience caused. It appears that your current device is not supported. Kindly attempt to access this website using a supported device, such as a laptop or PC. Thank you for your understanding.</p>
     </div>
+
+    <div id="o"></div>
+    <div id="uiCopyright">
+        &copy; <span id="copyrightYear"></span> Jake Lofthouse ALD Models |
+        <a href="https://www.aldmodels.co.uk" target="_blank">www.aldmodels.co.uk</a>
+    </div>
+
+    <script>
+        var copyright = document.getElementById('uiCopyright');
+        copyright.style.display = 'block';
+
+        // Function to get the current year
+        function getCurrentYear() {
+            return new Date().getFullYear();
+        }
+
+        // Function to update the copyright year
+        function updateCopyrightYear() {
+            document.getElementById('copyrightYear').textContent = getCurrentYear();
+        }
+        // Call the function to update the copyright year
+        updateCopyrightYear();
+
+    </script>
+    <div id="animated-bg"></div>
+
 </body>
 
 </html>
